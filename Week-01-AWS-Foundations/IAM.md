@@ -32,7 +32,9 @@ IAM controls who can access AWS and what actions they are allowed to perform
 - Verified setup using:
 	- `aws sts get-caller-identity`
 	- `aws iam list-users`
-![IAM Commands](Week-01-AWS-Foundations/images/IAM.PNG)
+
+![IAM Commands](/images/IAM.PNG)
+
 ## Commands Used
 ```bash
 aws configure
