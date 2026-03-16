@@ -33,7 +33,7 @@ IAM controls who can access AWS and what actions they are allowed to perform
 	- `aws sts get-caller-identity`
 	- `aws iam list-users`
 
-![images](images/IAM .PNG)
+![images](images/IAM.PNG)
 
 ## Commands Used
 ```bash
