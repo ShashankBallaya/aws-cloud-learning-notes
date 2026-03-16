@@ -1,4 +1,4 @@
-# EC2 — Amazon Elastic Compute Cloud
+# EC2 - Amazon Elastic Compute Cloud
 
 **Date Studied:** 16-03-2026  
 **Week:** 1  |  **Day:** 1  |  **Status:** ✅ Complete
