@@ -43,3 +43,4 @@ aws sts get-caller-identity
 
 aws iam list-users
 # List all IAM users
+![IAM Commands](images/IAM.PNG)
