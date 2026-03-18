@@ -19,7 +19,7 @@ VPC is a private network in AWS where you can launch and control ypur resources 
 - Security Group: Firewall controlling inbound and outbound traffic for instances.
 - Public IP: Required for EC2 to communicate over the internet.
 - Auto-assign IP: Automatically assigns a public IP to instances in a subnet.
-![images](VPC-diagram (1).png)
+![images](VPC-diagram.png)
 
 ## What I Built Today (Hands-On)
 - Created a custom VPC named `week1-vpc` with CIDR `10.0.0.0/16`.
