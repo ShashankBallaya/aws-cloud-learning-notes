@@ -36,7 +36,7 @@ VPC is a private network in AWS where you can launch and control ypur resources 
 ![images](images/VPC_EC2_SSH.png)
 - Installed Appache web server and served a custom HTML page.
 - Verified website loads using the EC2 public IP.
-![images](images/VPC_EC2_Hosted .png)
+![images](images/VPC_EC2_Hosted.png)
 - Performed failure test:
 	- Deleted route `0.0.0.0/0` -> lost SSH and HTTP access.
 	- Re-added route -> connectivity restored.
