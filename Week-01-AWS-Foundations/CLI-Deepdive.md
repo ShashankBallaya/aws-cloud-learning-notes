@@ -39,7 +39,7 @@ AWS CLI is a command-line tool that lets you manage AWS services directly from y
 - Understood command differences in Windows CMD (single-line, double quoted).
 
 ## Commands Used
-``bash
+```bash
 aws ec2 describe-vpcs --output table
 # Lists all VPCs in table format
 
@@ -83,3 +83,5 @@ aws ec2 describe-instances --instance-ids i-XXXX --query
 
 aws ec2 delete-security-group --group-id sg-XXXX
 # Deleted security group
+```
+
