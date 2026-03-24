@@ -323,7 +323,7 @@ aws ec2 release-address --allocation-id eipalloc-XXXX
 **When to use it:** To avoid unnecessary charges.
 
 ---
-### General / Utility
+## General / Utility
 
 ### Check AWS CLI Version
 ```Bash
