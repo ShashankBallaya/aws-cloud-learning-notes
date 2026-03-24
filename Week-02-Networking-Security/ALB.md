@@ -41,7 +41,7 @@ Application Load Balancer distributes incoming web traffic across multiple serve
 - Verified that both targets are healthy.
 - Accessed ALB DNS: 
 	- Observed traffic alternating between both servers.
-	![images](screenshots/web-server-1.png)
+	![web-server-1](screenshots/web-server-01.png)
 	![images](screenshots/web-server-2.png)
 - Performed health check experiment 
 	- Stopped `web-server-1`.
