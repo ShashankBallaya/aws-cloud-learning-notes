@@ -7,15 +7,15 @@ Personal reference of every AWS CLI command used during my 6-Week Cloud Learning
 ---
 
 ## Table of Contents
-- IAM
-- EC2 - Describe/Query
-- EC2 - Instance Lifecycle
-- EC2 - Security Groups
-- S3
-- CloudFront
-- VPC - NAT Gateway and Elastic IP
-- General/Utility 
-- Common Flags Reference
+- #IAM
+- #EC2 - Describe/Query
+- #EC2 - Instance Lifecycle
+- #EC2 - Security Groups
+- #S3
+- #CloudFront
+- #VPC - NAT Gateway and Elastic IP
+- #General/Utility 
+- #Common Flags Reference
 
 ---
 ## IAM
