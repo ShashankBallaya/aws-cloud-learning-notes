@@ -6,16 +6,16 @@
 ---
 
 ## What Is It?
-Application Load Balancer distributes incoming web traffic across multiple servers so your app stays available and scalable.
+Application Load Balancer distributes incoming web traffic across multiple servers, so your app stays available and scalable.
 
 ## How It Works (Key Concepts)
 - ALB: Layer 7 load balancer that routes HTTP/HTTPS traffic.
 - Target Group: Logical group of EC2 instances receiving traffic.
 - Listener: Checks for incoming requests (e.g., HTTP 80) and forwards them.
 - Health Check: Periodically verifies if targets are healthy.
-- Security Group (ALB): Allows inbound traffic from internet.
+- Security Group (ALB): Allows inbound traffic from the internet.
 - Security Group (EC2): Allows traffic only from ALB.
-- Internet-Facing: ALB accessible from the public internt.
+- Internet-Facing: ALB accessible from the public internet.
 - Multi-AZ: Requires at least 2 subnets in different Availability Zones.
 - Round Robin: Default method to distribute traffic across targets.
 - Failover: Automatically routes traffic away from unhealthy instances.
@@ -38,7 +38,7 @@ Application Load Balancer distributes incoming web traffic across multiple serve
 	- Associated with `alb-sg`.
 	- Listener: HTTP 80 > forwards to `week2-tg`.
 - Registered both EC2 instances in the target group.
-- Verified both targets are healthy.
+- Verified that both targets are healthy.
 - Accessed ALB DNS: 
 	- Observed traffic alternating between both servers.
 	![images](screenshots/web-server-1.png)
@@ -65,7 +65,7 @@ echo "<h1>Web Server 1</h1>" | sudo tee /var/www/html/index.html
 ```
 
 ## What Broke / What Confused Me 
-ALB required at least two subnets in different Availability Zones.
+ALB requires at least two subnets in different Availability Zones.
 Initially, I had only one subnet, so ALB creation was not possible.
 After adding another subnet in a different AZ, ALB creation succeeded. 
 This ensures high availability across AZs.
