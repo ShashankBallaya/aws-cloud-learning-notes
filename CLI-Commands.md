@@ -7,28 +7,26 @@ Personal reference of every AWS CLI command used during my 6-Week Cloud Learning
 ---
 
 ## Table of Contents
-- #IAM
-- #EC2 - Describe/Query
-- #EC2 - Instance Lifecycle
-- #EC2 - Security Groups
-- #S3
-- #CloudFront
-- #VPC - NAT Gateway and Elastic IP
-- #General/Utility 
-- #Common Flags Reference
+- IAM[](#iam)
+- EC2 - Describe/Query[](#ec2--describe--query)
+- EC2 - Instance Lifecycle[](#ec2--instance--lifecycle)
+- EC2 - Security Groups[](#ec2--security-groups)
+- S3[](#s3)
+- CloudFront[](#cloudfront)
+- VPC - NAT Gateway and Elastic IP[](#vpc---nat-gateway-and-elastic-ip)
+- General/Utility[](#general-utility)
+- Common Flags Reference[](#common-flags-refernce)
 
 ---
 ## IAM
----
 
 ### Configure AWS CLI 
 ```Bash
 aws configure
 ```
 **What it does:** Sets up AWS CLI credentials, region, and output format.
-**When to use:** When initializing CLI on a new system ot profile.
+**When to use:** When initialising CLI on a new system or profile.
 
----
 
 ### Get Caller Identity
 ```Bash
@@ -37,7 +35,7 @@ aws sts get-caller-identity
 **What it does:** Returns details about the IAM identity making the request.
 **When to use it:** To verify which account/user is currently authenticated.
 
----
+
 
 #### List IAM Users
 ```Bash
@@ -48,7 +46,7 @@ aws iam list-users
 
 ---
 ## EC2 - Describe / Query
----
+
 
 ### List Running Instances
 ``` Bash
@@ -57,7 +55,6 @@ aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" -
 **What it does:** Shows only running EC2 instances in table format.
 **When to use it:** To quickly check active instances.
 
----
 
 ### Get Public IP of Instance
 ``` Bash
@@ -66,16 +63,14 @@ aws ec2 describe-instances --instance-ids i-XXXX --query "Reservations[0].Instan
 **What it does:** Extracts the public IP of a specific instance.
 **When to use it:** When connecting to EC2 via SSH.
 
----
 
 ### Get Instance State
 ```Bash
 aws ec2 describe-instances --instance-ids i-XXXX --query "Reservations[0].Instances[0].State.Name" --output text
 ```
 **What it does:** Returns the current state of an instance.
-**When to use it:** To check if instance is running, stopped, etc.
+**When to use it:** To check if an instance is running, stopped, etc.
 
----
 
 ### List VPCs
 ```Bash 
@@ -84,7 +79,6 @@ aws ec2 describe-vpcs --output table
 **What it does:** Lists all VPCs in the account.
 **When to use it:** When working with networking setups.
 
----
 
 ### List Subnets in VPC
 ```Bash 
@@ -93,7 +87,6 @@ aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-XXXX" --query "Subnet
 **What it does:** Lists subnets with key details for a specific VPC.
 **When to use it:** When selecting subnets for resources.
 
----
 
 ### List Security Groups
 ```Bash
@@ -102,16 +95,14 @@ aws ec2 describe-security-groups --output table
 **What it does:** Displays all security groups in table format.
 **When to use it:** To review firewall configurations.
  
----
 
 ### Describe Specific Security Group
 ```Bash
 aws ec2 describe-security-groups --group-ids sg-XXXX
 ```
 **What it does:** Shows detailed info about a specific security group.
-**When to use it:** To inspect rules of a particular group.
+**When to use it:** To inspect the rules of a particular group.
 
----
 
 ### List Key Pairs
 ```Bash
@@ -120,7 +111,6 @@ aws ec2 describe-key-pairs --output table
 **What it does:** Lists all EC2 key pairs.
 **When to use it:** When managing SSH access keys.
 
----
 
 ### Get Latest Amazon Linux AMI
 ```Bash
@@ -131,7 +121,6 @@ aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-hv
 
 ---
 ## EC2 - Instance Lifecycle
----
 
 ### Launch EC2 Instance
 ```Bash
@@ -140,16 +129,14 @@ aws ec2 run-instances --image-id ami-XXXX --instance-type t3.micro --key-name KE
 **What it does:** Launches a new EC2 instance with specified configuration.
 **When to use it:** When creating instances via CLI.
 
----
 
 ### Wait for Instance Running
 ```Bash
 aws ec2 wait instance-running --instance-ids i-XXXX
 ```
-**What it does:** Waits untill the instance reaches running state.
+**What it does:** Waits until the instance reaches running state.
 **When to use it:** In scripts to ensure instance readiness.
 
----
 
 ### Terminate Instance (Single)
 ```Bash
@@ -158,7 +145,6 @@ aws ec2 terminates-instances --instance-ids i-XXXX
 **What it does:** Terminates a specific EC2 instance.
 **When to use it:** When cleaning up resources.
 
----
 
 ### Terminate Multiple Instances
 ```Bash
@@ -169,7 +155,6 @@ aws ec2 terminate-instances --instance-ids i-XXXX i-YYYY
 
 ---
 ## EC2 - Security Groups
----
 
 ### Create Security Group
 ```Bash
@@ -178,7 +163,6 @@ aws ec2 create-security-group --group-name NAME --description "DESC" --vpc-id vp
 **What it does:** Creates a new security group in a VPC.
 **When to use it:** Before launching instances with custom rules.
 
----
 
 ### Allow SSH Access
 ```Bash
@@ -187,7 +171,6 @@ aws ec2 authorize-security-group-ingress --group-ids sg-XXXX --protocol tcp --po
 **What it does:** Allows SSH access from a specific IP.
 **When to use it:** For secure remote access.
 
----
 
 ### Allow HTTP Access
 ```Bash
@@ -196,7 +179,6 @@ aws ec2 authorize-security-group-ingress --group-id sg-XXXX --protocol tcp --por
 **What it does:** Opens HTTP access to the internet.
 **When to use it:** For web servers.
 
----
 
 ### Delete Security Group
 ```Bash
@@ -207,7 +189,6 @@ aws ec2 delete-security-group --group-id sg-XXXX
 
 ---
 ## S3
----
 
 ### List Buckets
 ```Bash
@@ -216,7 +197,6 @@ aws s3 ls
 **What it does:** Lists all S3 buckets.
 **When to use it:** To view available storage buckets.
 
----
 
 ### List Bucket Contents
 ```Bash 
@@ -225,7 +205,6 @@ aws s3 ls s3://bucket-name
 **What it does:** Lists files inside a bucket.
 **When to use it:** To inspect bucket contents.
 
----
 
 ### Create Bucket
 ```Bash
@@ -234,7 +213,6 @@ aws s3 mb s3://bucket-name --region ap-south-1
 **What it does:** Creates a new S3 bucket.
 **When to use it:** Before uploading data.
 
----
 
 ### Delete Bucket (Force)
 ```Bash
@@ -243,7 +221,6 @@ aws s3 rb s3://bucket-name --force
 **What it does:** Deletes a bucket and all its contents.
 **When to use it:** For cleanup operations.
 
----
 
 ### Upload File
 ```Bash
@@ -252,7 +229,6 @@ aws s3 cp file.txt s3://bucket-name/
 **What it does:** Uploads a file to S3.
 **When to use it:** For backups or hosting files.
 
----
 
 ### Download File
 ```Bash
@@ -261,7 +237,6 @@ aws s3 cp s3://bucket-name/file.txt ./
 **What it does:** Downloads a file from S3.
 **When to use it:** To retrieve stored data.
 
----
 
 ### Sync Local to S3
 ```Bash
@@ -270,7 +245,6 @@ aws s3 sync ./folder s3://bucket-name/
 **What it does:** Sync local foldet to S3.
 **When to use it:** For bulk uploads.
 
----
 
 ### Sync S3 to Local
 ```Bash
@@ -279,7 +253,6 @@ aws s3 sync s3://bucket-name/ ./folder
 **What it does:** Syncs S3 contents to local folder.
 **When to use it:** For backups or replication.
 
-----
 
 ### Delete File 
 ```Bash
@@ -290,7 +263,7 @@ aws s3 rm s3://bucket-name/file.txt
 
 ---
 ## CloudFront
----
+
 
 ### List Distributions
 ```Bash
@@ -299,7 +272,6 @@ aws cloudfront list-distributions --query "DistributionList.Items[*].{ID:Id,Doma
 **What it does:** Lists CloudFront distributions with IDs and domains.
 **When to use it:** To view CDN endpoints.
 
----
 
 ### Invalidate Cache
 ```Bash 
@@ -308,7 +280,6 @@ aws cloudfront create-invalidation --distribution-id EXXXX --paths "/*"
 **What it does:** Clears cached content from CloudFront.
 **When to use it:** After updating content.
 
----
 
 ### Invalidate (Auto Fetch ID)
 ```Bash
@@ -319,7 +290,6 @@ aws cloudfront create-invalidation --distribution-id $(aws cloudfront list-distr
 
 ---
 ## VPC - NAT Gateway and Elastic IP
----
 
 ### List NAT Gateways
 ```Bash
@@ -328,7 +298,6 @@ aws ec2 describe-nat-gateways --output table
 **What it does:** List NAT Gateways.
 **When to use it:** To manage outbound internet access.
 
----
 
 ### Delete NAT Gateway
 ```Bash 
@@ -337,7 +306,6 @@ aws ec3 delete-nat-gateway --nat-gateway-id nat-XXXX
 **What it does:** Deletes a NAT Gateway.
 **When to use it:** To reduce cost after use.
 
----
 
 ### List Elastic IPs
 ```Bash
@@ -346,7 +314,6 @@ aws ec2 descibe-addresses --output-table
 **What it does:** Lists Elastic IPs.
 **When to use it:** To manage public IP allocations.
 
----
 
 ### Release Elastic IP
 ```Bash
@@ -357,16 +324,14 @@ aws ec2 release-address --allocation-id eipalloc-XXXX
 
 ---
 ### General / Utility
----
 
 ### Check AWS CLI Version
 ```Bash
 aws --version
 ```
-**What it does:** Displays installed AWS CLI version.
+**What it does:** Displays the installed AWS CLI version.
 **When to use it:** To verify installation.
 
----
 
 ### Configure CLI 
 ```Bash 
@@ -375,7 +340,6 @@ aws configure
 **What it does:** Sets up credentials and defaults.
 **When to use it:** During intial setup.
 
----
 
 ### List Config
 ```Bash
