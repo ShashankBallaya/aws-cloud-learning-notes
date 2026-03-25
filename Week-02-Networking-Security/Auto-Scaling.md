@@ -6,7 +6,7 @@
 ---
 
 ## What Is It?
-Auto Scaling automatically adds or removes EC2 instances based on demand so your application stays available and cost-efficient.
+Auto Scaling automatically adds or removes EC2 instances based on demand, so your application stays available and cost-efficient.
 
 ## How It Works (Key Concepts)
 - Launch Template: Blueprint for EC2 instances (AMI, instance type, SG, user data).
@@ -34,14 +34,15 @@ Auto Scaling automatically adds or removes EC2 instances based on demand so your
 - Accessed ALB DNS and confirmed traffic served from ASG instances.
 - Performed manual scaling:
 	- Increased desired capacity to 3 > new instance launched automatically.
-	- [Images](screenshots/asg_1.png)
-	- [Images](screenshots/asg_2.png)
-	- [Images](screenshots/asg_3.png)
+		- [Images](screenshots/asg_1.png)
+		- [Images](screenshots/asg_2.png)
+		- [Images](screenshots/asg_3.png)
 	- Decreased desired capacity to 1 > extra instances terminated automatically.
+ 		- [Images](screenshots/asg_1.png)
 - Configured scaling policy:
 	- Target tracking policy with CPU target = 50%.
 - Created SNS topic `week2-alerts`:
-	- Subscribed email and confirmed subscription.
+	- Subscribed to the email and confirmed the subscription.
 - Created CloudWatch alarm:
 	- Trigger: CPU > 70% from 2 minutes.
 	- Action: Send notification via SNS.
