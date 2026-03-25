@@ -34,9 +34,9 @@ Auto Scaling automatically adds or removes EC2 instances based on demand so your
 - Accessed ALB DNS and confirmed traffic served from ASG instances.
 - Performed manual scaling:
 	- Increased desired capacity to 3 > new instance launched automatically.
-	[Images](/screenshots/asg_1.png)
-	[Images](/screenshots/asg_2.png)
-	[Images](/screenshots/asg_3.png)
+	- [Images](screenshots/asg_1.png)
+	- [Images](screenshots/asg_2.png)
+	- [Images](screenshots/asg_3.png)
 	- Decreased desired capacity to 1 > extra instances terminated automatically.
 - Configured scaling policy:
 	- Target tracking policy with CPU target = 50%.
