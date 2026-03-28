@@ -1,4 +1,4 @@
-# Week 2 Summary — March 24–28, 2025
+# Week 2 Summary — March 23–28, 2025
 
 ## What I Built This Week
 
@@ -10,8 +10,7 @@ SSH'd through the bastion into the private EC2, and confirmed outbound
 internet worked via curl and yum update. Enabled VPC Flow Logs to send 
 traffic records to CloudWatch.
 
-Next, I built an Application Load Balancer across two AZs with two EC2 instances
-, auto-configured via User Data. Verified both targets are healthy, 
+Next, I built an Application Load Balancer across two AZs with two EC2 instances, auto-configured via User Data. Verified that both targets are healthy, 
 stopped one server, and watched ALB automatically reroute all traffic 
 to the healthy instance.
 
